@@ -80,7 +80,7 @@ component: () => import('@/pages/Home')
 ### 多次执行相同的push问题
 
 多次执行相同的push问题，控制台会出现警告
-例如：使用this.$router.push({name:‘Search’,params:{keyword:"…"||undefined}})时，如果多次执行相同的push，控制台会出现警告。
+例如：使用`this.$router.push({name:‘Search’,params:{keyword:"…"||undefined}})`时，如果多次执行相同的push，控制台会出现警告。
 
 ##### 原因
 
@@ -100,7 +100,9 @@ push是一个promise，promise需要传递成功和失败两个参数，我们�
 
 方法：
 
-1. this.$router.push({name:‘Search’,params:{keyword:"…"||undefined}},()=>{},()=>{})后面两项分别代表执行成功和失败的回调函数。**这种写法治标不治本，将来在别的组件中push|replace,编程式导航还是会有类似错误**
+1. `this.$router.push({name:‘Search’,params:{keyword:"…"||undefined}},()=>{},()=>{})`
+
+   后面两项分别代表执行成功和失败的回调函数。**这种写法治标不治本，将来在别的组件中push|replace,编程式导航还是会有类似错误**
 
 2. 重写push和replace方法
 
